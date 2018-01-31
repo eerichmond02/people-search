@@ -22,7 +22,7 @@ const List = (props) => {
 			<br />
       <div id='nameList'>
       	{showUsers.map((user, idx) => (
-      		<button key={user.id} id={user.id} className='userName' onClick={props.displayUser}>{user.name}</button>
+      		<button key={user.id} className='userName' onClick={() => props.displayUser(user.id)}>{user.name}</button>
       	))}
       </div>
 		</div>
@@ -65,8 +65,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return (
 		{
-			displayUser: e => {
-				dispatch(displayUser(e.target.id));
+			displayUser: id => {
+				dispatch(displayUser(id));
 			},
 			updateInput: e => {
 				dispatch(updateInput(e.target.value));
