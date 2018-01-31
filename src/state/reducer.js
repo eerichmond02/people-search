@@ -42,8 +42,16 @@ const initialState = {
     new User('Millie', 'Hawkins, Indiana', 'ESP', 'Blowing up things from the upside down', 'hoppin@email.com'),
     new User('Train', 'Oaklahoma City', 'Real Engineer', 'choo choo', 'chooc.choo@email.com'),
   ],
-  selected: '',
+  selected: undefined,
   input: ''
+}
+
+const selectUser = (users, id) => {
+  let selectedUser;
+  users.forEach(user => {
+    if(user.id === id) selectedUser = user;
+  });
+  return selectedUser;
 }
 
 const reducer = (state=initialState, action) => {
@@ -51,12 +59,12 @@ const reducer = (state=initialState, action) => {
     case DISPLAY_USER:
       return {
         ...state,
-        selected: action.payload
+        selected: selectUser(state.users, action.payload)
       }
     case DESELECT:
       return {
         ...state,
-        selected: '',
+        selected: undefined,
         input: ''
       }
     case UPDATE_INPUT:
