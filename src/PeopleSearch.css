@@ -17,6 +17,7 @@
 	border: none;
 	width: 100px;
 	text-align: left;
+	cursor: pointer;
 }
 
 .userName:hover {
