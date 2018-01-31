@@ -37,23 +37,19 @@ List.propTypes = {
 };
 
 const UserInfo = (props) => {
-	let user;
-	for (let i = 0; i < props.users.length; i++) {
-		if (props.users[i].id === props.selected) { user = props.users[i];}
-	}
 	return (
 		<div id='info'>
-			<h1 id='name'>{user.name}</h1>
-			<p className='userInfo'>City: {user.city}</p>
-			<p className='userInfo'>Industry: {user.industry}</p>
-			<p className='userInfo'>Hobbies: {user.hobbies}</p>
-			<p className='userInfo'>Email: {user.email}</p>
+			<h1 id='name'>{props.selected.name}</h1>
+			<p className='userInfo'>City: {props.selected.city}</p>
+			<p className='userInfo'>Industry: {props.selected.industry}</p>
+			<p className='userInfo'>Hobbies: props.selected.hobbies}</p>
+			<p className='userInfo'>Email: {props.selected.email}</p>
 		</div>
 	)
 }
 
 UserInfo.propTypes = {
-  users: PropTypes.array.isRequired
+  selected: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => {

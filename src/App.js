@@ -32,7 +32,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  selected: PropTypes.string.isRequired,
+  selected: PropTypes.object,
   deselect: PropTypes.func.isRequired
 };
 
